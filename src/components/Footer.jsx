@@ -29,6 +29,14 @@ const Footer = () => {
               <h4 className="footer-heading">Company</h4>
               <a href="mailto:hello@finanshels.com" className="footer-link">Contact Us</a>
             </div>
+            <div className="footer-column">
+              <h4 className="footer-heading">A/B Test Variations</h4>
+              <a href="/?variant=a" className="footer-link">Variation A</a>
+              <a href="/?variant=b" className="footer-link">Variation B</a>
+              <a href="/?variant=c" className="footer-link">Variation C</a>
+              <a href="/?variant=d" className="footer-link">Variation D</a>
+              <a href="/?variant=e" className="footer-link">Variation E</a>
+            </div>
           </div>
 
           <div className="footer-cta-modern">
