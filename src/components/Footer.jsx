@@ -31,7 +31,14 @@ const Footer = () => {
               <h4 className="footer-heading">Services</h4>
               <a href="#pricing" className="footer-link">Pricing</a>
               <a href="#reviews" className="footer-link">Reviews</a>
-              <a href="mailto:hello@finanshels.com" className="footer-link">Book a Call</a>
+              <a
+                href="https://contact-finanshels.zohobookings.com/#/audit-consultation"
+                className="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book a Call
+              </a>
             </div>
             <div className="footer-column">
               <h4 className="footer-heading">Company</h4>
@@ -42,7 +49,12 @@ const Footer = () => {
           <div className="footer-cta-modern">
             <h4 className="footer-heading">Ready to get started?</h4>
             <p className="footer-cta-text">Tell us where you operate and we&apos;ll match you with the right finance pod.</p>
-            <a href="mailto:hello@finanshels.com" className="btn-footer-cta">
+            <a
+              href="https://contact-finanshels.zohobookings.com/#/audit-consultation"
+              className="btn-footer-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Book Strategy Call
             </a>
           </div>

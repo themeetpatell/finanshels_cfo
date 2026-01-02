@@ -26,7 +26,12 @@ const Nav = () => {
           />
         </a>
         
-        <a href="mailto:hello@finanshels.com" className="btn-nav-primary">
+        <a
+          href="https://contact-finanshels.zohobookings.com/#/audit-consultation"
+          className="btn-nav-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Get Free Consultation
           </a>
       </div>
