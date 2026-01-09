@@ -31,6 +31,15 @@ const Nav = () => {
           className="btn-nav-primary"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => {
+            if (window.dataLayer) {
+              window.dataLayer.push({
+                event: 'nav_consultation_click',
+                button_location: 'navigation',
+                button_text: 'Get Free Consultation'
+              });
+            }
+          }}
         >
           Get Free Consultation
           </a>

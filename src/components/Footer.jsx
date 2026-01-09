@@ -36,6 +36,15 @@ const Footer = () => {
                 className="footer-link"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  if (window.dataLayer) {
+                    window.dataLayer.push({
+                      event: 'footer_consultation_click',
+                      button_location: 'footer_links',
+                      button_text: 'Book a Call'
+                    });
+                  }
+                }}
               >
                 Book a Call
               </a>
@@ -54,6 +63,15 @@ const Footer = () => {
               className="btn-footer-cta"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => {
+                if (window.dataLayer) {
+                  window.dataLayer.push({
+                    event: 'footer_cta_click',
+                    button_location: 'footer_cta_section',
+                    button_text: 'Book Strategy Call'
+                  });
+                }
+              }}
             >
               Book Strategy Call
             </a>

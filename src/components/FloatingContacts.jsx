@@ -13,11 +13,35 @@ const FloatingContacts = () => {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
+        onClick={() => {
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: 'whatsapp_click',
+              button_location: 'floating_button',
+              button_text: 'WhatsApp',
+              phone_number: '971521549572'
+            });
+          }
+        }}
       >
         <FaWhatsapp className="contact-icon" />
         <span className="contact-label">WhatsApp</span>
       </a>
-      <a className="contact-btn phone" href={`tel:${phoneHref}`} aria-label="Call us">
+      <a
+        className="contact-btn phone"
+        href={`tel:${phoneHref}`}
+        aria-label="Call us"
+        onClick={() => {
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: 'phone_call_click',
+              button_location: 'floating_button',
+              button_text: 'Call us',
+              phone_number: phoneHref
+            });
+          }
+        }}
+      >
         <FiPhoneCall className="contact-icon" />
         <span className="contact-label">Call us</span>
       </a>

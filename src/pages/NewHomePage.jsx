@@ -494,12 +494,28 @@ const NewHomePage = () => {
               <p className="form-subtitle">Book a 30-minute call with our audit experts. No obligation.</p>
 
               <form
-                action="https://forms.zohopublic.com/finanshelsllc/form/GetYourFreeAuditConsultation/formperma/EikNR5Pwn-Ak9PHJxB-cTO47ehdcxhrZeW_itd-c-I0/htmlRecords/submit"
+                action="https://forms.zohopublic.com/finanshelsllc/form/GetYourFreeAccountingConsultation/formperma/QCbszPbiYZx16ed2dttj_d614SUen1t8U5iXQVgng7U/htmlRecords/submit"
                 name="form"
                 id="hero-zoho-form"
                 method="POST"
                 acceptCharset="UTF-8"
                 encType="multipart/form-data"
+                onSubmit={() => {
+                  if (window.dataLayer) {
+                    window.dataLayer.push({
+                      event: 'form_submission',
+                      form_name: 'hero_consultation_form',
+                      form_location: 'hero_section',
+                      form_type: 'accounting_consultation'
+                    });
+                  }
+                  // Google Ads Conversion tracking
+                  if (window.gtag) {
+                    window.gtag('event', 'conversion', {
+                      'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
+                    });
+                  }
+                }}
               >
                 <input type="hidden" name="zf_referrer_name" value="" />
                 <input type="hidden" name="zf_redirect_url" value="" />
@@ -513,7 +529,7 @@ const NewHomePage = () => {
                       maxLength="255"
                       name="Name_First"
                       fieldType="7"
-                      placeholder="First name"
+                      placeholder=""
                       className="form-input"
                     />
                   </div>
@@ -524,7 +540,7 @@ const NewHomePage = () => {
                       maxLength="255"
                       name="Name_Last"
                       fieldType="7"
-                      placeholder="Last name"
+                      placeholder=""
                       className="form-input"
                     />
                   </div>
@@ -543,38 +559,22 @@ const NewHomePage = () => {
                   className="form-input"
                 />
 
-                <div className="form-row phone-row">
-                  <div className="form-field">
-                    <label>Code</label>
-                    <select
-                      compname="PhoneNumber"
-                      name="PhoneNumber_countrycode"
-                      phoneFormat="1"
-                      id="international_PhoneNumber_countrycode"
-                      className="form-input"
-                      defaultValue="+971"
-                    >
-                      {countryCodes.map(({ country, code }) => (
-                        <option key={`${country}-${code}`} value={code}>
-                          {country} ({code})
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="form-field">
-                    <label>Number</label>
-                    <input
-                      type="text"
-                      compname="PhoneNumber_countrycodeval"
-                      name="PhoneNumber_countrycodeval"
-                      phoneFormat="1"
-                      maxLength="10"
-                      id="international_PhoneNumber_countrycodeval"
-                      placeholder="5xxxxxxxx"
-                      className="form-input"
-                    />
-                  </div>
-                </div>
+                <label>
+                  Phone <em>*</em>
+                </label>
+                <input
+                  type="text"
+                  compname="PhoneNumber"
+                  name="PhoneNumber_countrycode"
+                  phoneFormat="1"
+                  isCountryCodeEnabled="false"
+                  maxLength="20"
+                  defaultValue=""
+                  fieldType="11"
+                  id="international_PhoneNumber_countrycode"
+                  placeholder="+971 00 000 0000"
+                  className="form-input"
+                />
 
                 <label>
                   Company Name <em>*</em>
@@ -596,11 +596,11 @@ const NewHomePage = () => {
                   defaultValue=""
                   fieldType="1"
                   maxLength="255"
-                  placeholder="e.g. Finance Manager"
+                  placeholder=""
                   className="form-input"
                 />
                 <button type="submit" className="form-submit">
-                  Submit
+                  <em>Submit</em>
                 </button>
               </form>
 
@@ -724,6 +724,16 @@ const NewHomePage = () => {
                 href="https://api.whatsapp.com/send/?phone=971521549572&text=Hi+I+saw+your+ad+for+Audit+Services+on+google.+I%E2%80%99d+like+to+get+started.&type=phone_number&app_absent=0"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => {
+                  if (window.dataLayer) {
+                    window.dataLayer.push({
+                      event: 'whatsapp_click',
+                      button_location: 'solution_section',
+                      button_text: 'Talk to an Audit Expert',
+                      phone_number: '971521549572'
+                    });
+                  }
+                }}
               >
                 Talk to an Audit Expert
               </a>
@@ -948,12 +958,28 @@ const NewHomePage = () => {
                 <p className="form-subtitle">Book a 30-minute call with our audit experts. No obligation.</p>
               
               <form
-                action="https://forms.zohopublic.com/finanshelsllc/form/GetYourFreeAuditConsultation/formperma/EikNR5Pwn-Ak9PHJxB-cTO47ehdcxhrZeW_itd-c-I0/htmlRecords/submit"
+                action="https://forms.zohopublic.com/finanshelsllc/form/GetYourFreeAccountingConsultation/formperma/QCbszPbiYZx16ed2dttj_d614SUen1t8U5iXQVgng7U/htmlRecords/submit"
                 name="form"
                 id="cta-zoho-form"
                 method="POST"
                 acceptCharset="UTF-8"
                 encType="multipart/form-data"
+                onSubmit={() => {
+                  if (window.dataLayer) {
+                    window.dataLayer.push({
+                      event: 'form_submission',
+                      form_name: 'cta_consultation_form',
+                      form_location: 'final_cta_section',
+                      form_type: 'accounting_consultation'
+                    });
+                  }
+                  // Google Ads Conversion tracking
+                  if (window.gtag) {
+                    window.gtag('event', 'conversion', {
+                      'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
+                    });
+                  }
+                }}
               >
                 <input type="hidden" name="zf_referrer_name" value="" />
                 <input type="hidden" name="zf_redirect_url" value="" />
@@ -967,7 +993,7 @@ const NewHomePage = () => {
                       maxLength="255"
                       name="Name_First"
                       fieldType="7"
-                      placeholder="First name"
+                      placeholder=""
                       className="form-input"
                     />
                   </div>
@@ -978,7 +1004,7 @@ const NewHomePage = () => {
                       maxLength="255"
                       name="Name_Last"
                       fieldType="7"
-                      placeholder="Last name"
+                      placeholder=""
                       className="form-input"
                     />
                   </div>
@@ -997,38 +1023,22 @@ const NewHomePage = () => {
                   className="form-input"
                 />
 
-                <div className="form-row phone-row">
-                  <div className="form-field">
-                    <label>Code</label>
-                    <select
-                      compname="PhoneNumber"
-                      name="PhoneNumber_countrycode"
-                      phoneFormat="1"
-                      id="international_PhoneNumber_countrycode_cta"
-                      className="form-input"
-                      defaultValue="+971"
-                    >
-                      {countryCodes.map(({ country, code }) => (
-                        <option key={`${country}-${code}`} value={code}>
-                          {country} ({code})
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="form-field">
-                    <label>Number</label>
-                    <input
-                      type="text"
-                      compname="PhoneNumber_countrycodeval"
-                      name="PhoneNumber_countrycodeval"
-                      phoneFormat="1"
-                      maxLength="10"
-                      id="international_PhoneNumber_countrycodeval_cta"
-                      placeholder="5xxxxxxxx"
-                      className="form-input"
-                    />
-                  </div>
-                </div>
+                <label>
+                  Phone <em>*</em>
+                </label>
+                <input
+                  type="text"
+                  compname="PhoneNumber"
+                  name="PhoneNumber_countrycode"
+                  phoneFormat="1"
+                  isCountryCodeEnabled="false"
+                  maxLength="20"
+                  defaultValue=""
+                  fieldType="11"
+                  id="international_PhoneNumber_countrycode_cta"
+                  placeholder="+971 00 000 0000"
+                  className="form-input"
+                />
 
                 <label>
                   Company Name <em>*</em>
@@ -1050,11 +1060,11 @@ const NewHomePage = () => {
                   defaultValue=""
                   fieldType="1"
                   maxLength="255"
-                  placeholder="e.g. Finance Manager"
+                  placeholder=""
                   className="form-input"
                 />
                 <button type="submit" className="form-submit">
-                  Submit
+                  <em>Submit</em>
                 </button>
               </form>
               
