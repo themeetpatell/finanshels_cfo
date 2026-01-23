@@ -55,27 +55,6 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="footer-cta-modern">
-            <h4 className="footer-heading">Ready to get started?</h4>
-            <p className="footer-cta-text">Tell us where you operate and we&apos;ll match you with the right finance pod.</p>
-            <a
-              href="https://contact-finanshels.zohobookings.com/#/audit-consultation"
-              className="btn-footer-cta"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => {
-                if (window.dataLayer) {
-                  window.dataLayer.push({
-                    event: 'footer_cta_click',
-                    button_location: 'footer_cta_section',
-                    button_text: 'Book Strategy Call'
-                  });
-                }
-              }}
-            >
-              Book Strategy Call
-            </a>
-          </div>
         </div>
 
         <div className="footer-bottom-modern">
