@@ -27,11 +27,9 @@ const Nav = () => {
         </a>
         
         <a
-          href="https://contact-finanshels.zohobookings.com/#/audit-consultation"
+          href="#consultation"
           className="btn-nav-primary"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => {
+          onClick={(e) => {
             if (window.dataLayer) {
               window.dataLayer.push({
                 event: 'nav_consultation_click',
@@ -39,10 +37,16 @@ const Nav = () => {
                 button_text: 'Get Free Consultation'
               });
             }
+
+            const consultationSection = document.getElementById('consultation');
+            if (consultationSection) {
+              e.preventDefault();
+              consultationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
           }}
         >
           Get Free Consultation
-          </a>
+        </a>
       </div>
     </header>
   );
