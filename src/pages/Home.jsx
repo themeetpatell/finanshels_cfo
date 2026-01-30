@@ -1,8 +1,24 @@
-import { useEffect, useRef } from 'react';
-import { FiCheckCircle, FiStar, FiFileText, FiShield, FiUsers, FiZap, FiBarChart2, FiBriefcase, FiCreditCard, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import './NewHomePage.css';
+import { useEffect, useRef, useState } from 'react';
+import {
+  FiCheckCircle,
+  FiStar,
+  FiFileText,
+  FiShield,
+  FiUsers,
+  FiZap,
+  FiBarChart2,
+  FiBriefcase,
+  FiCreditCard,
+  FiChevronLeft,
+  FiChevronRight,
+  FiChevronDown,
+  FiAlertTriangle,
+  FiTrendingDown,
+  FiUserX
+} from 'react-icons/fi';
+import './Home.css';
 
-const NewHomePage = () => {
+const Home = () => {
   const testimonialsTrackRef = useRef(null);
 
   // Zoho advanced lead UTM capture (provided snippet)
@@ -346,96 +362,98 @@ const NewHomePage = () => {
     }
   };
 
-  const auditNecessityPoints = [
+  const challengePoints = [
     {
-      icon: <FiFileText />,
-      title: 'License Renewal Compliance',
-      description:
-        'Whether you operate in mainland or free zones, submitting audited financial statements within specified deadlines is mandatory for trade license renewal.'
+      icon: <FiAlertTriangle />,
+      title: 'No Financial Visibility',
+      description: 'Critical decisions without real-time data. Flying blind on cash runway and burn.'
+    },
+    {
+      icon: <FiTrendingDown />,
+      title: 'Fundraising Struggles',
+      description: 'Investor meetings without robust models and metrics that VCs expect to see.'
+    },
+    {
+      icon: <FiUserX />,
+      title: 'Full-Time CFO Too Expensive',
+      description: 'A full-time CFO costs AED 500K+/year — too much for a growing company.'
     },
     {
       icon: <FiShield />,
-      title: 'Federal Tax Authority (FTA) Compliance',
-      description:
-        'Companies with revenues exceeding certain thresholds or those selected for FTA audit must comply through credible, independently audited accounts that withstand regulatory scrutiny.'
-    },
-    {
-      icon: <FiCreditCard />,
-      title: 'Banking Relationships in UAE',
-      description:
-        'Without current audited statements, your access to banking services and credit may be restricted, limiting your ability to take on projects, manage cash flow, or expand operations.'
-    },
-    {
-      icon: <FiUsers />,
-      title: 'Credibility and Trust',
-      description:
-        'Third-party validation significantly enhances your organization’s reputation in the competitive UAE market allowing you to raise funding from investors.'
+      title: 'Compliance Headaches',
+      description: 'UAE VAT, corporate tax, and regulatory requirements piling up with tight deadlines.'
     }
   ];
 
-  const auditServices = [
-    {
-      icon: <FiShield />,
-      title: 'Statutory Financial Audits',
-      description:
-        'We deliver clear audit opinions that meet all UAE legal and regulatory requirements including those for DED license renewal, free zone compliance, and FTA submissions.'
-    },
+  const cfoServices = [
     {
       icon: <FiBarChart2 />,
-      title: 'Internal Audit Services',
-      description:
-        'We assess operational efficiency, compliance with policies and procedures, safeguarding of assets, and reliability of financial and operational information. We identify control weaknesses and recommend practical improvements that strengthen your organization’s internal environment.'
+      title: 'Strategic FP&A',
+      description: '3-way models, rolling forecasts, and scenario planning that guide hiring and GTM.',
+      bullets: ['Monthly forecasting cadence', 'Hiring & runway scenarios', 'Board-ready KPI dashboards']
     },
     {
-      icon: <FiBriefcase />,
-      title: 'Free Zone Compliance Audits',
-      description:
-        'We provide specialized audit services tailored to the specific requirements of major UAE free zones. Each free zone has unique audit submission requirements, deadlines, and reporting formats. Our team ensures your audited financials meet the exact specifications required by your free zone authority for seamless license renewal and ongoing compliance.'
+      icon: <FiFileText />,
+      title: 'Investor & Board Reporting',
+      description: 'Crisp monthly packs, variance analysis, cohort views, and data-room prep.',
+      bullets: ['Board decks and commentary', 'MRR/ARR and unit economics', 'Data room & diligence support']
+    },
+    {
+      icon: <FiShield />,
+      title: 'Tax & Compliance',
+      description: 'UAE corporate tax/VAT readiness, policies, and controls without slowing growth.',
+      bullets: ['VAT and corporate tax reviews', 'Policies, controls, approvals', 'Audit & compliance liaison']
     },
     {
       icon: <FiZap />,
-      title: 'Tax Audits and FTA Support',
-      description:
-        'We review VAT returns, corporate tax filings, transfer pricing documentation, and tax provision calculations in line with UAE tax legislation. We provide expert representation, manage all communications with the FTA, prepare comprehensive responses to queries, and negotiate resolutions that protect your interests while ensuring compliance with UAE tax laws.'
+      title: 'Cash & Working Capital',
+      description: 'Tight cash management, collections playbooks, and vendor terms negotiation.',
+      bullets: ['13-week cashflow', 'Collections & billing process', 'Payables/FX optimization']
+    },
+    {
+      icon: <FiUsers />,
+      title: 'Finance Team & Systems',
+      description: 'Build lean finance ops across tools, processes, and people.',
+      bullets: ['Close acceleration & checklists', 'Tooling stack design & migration', 'Recruiting & training support']
+    },
+    {
+      icon: <FiCheckCircle />,
+      title: 'M&A & Fundraising',
+      description: 'Models, materials, and diligence response so deals move faster.',
+      bullets: ['Investor model + sensitivities', 'Q&A and data requests', 'Transaction support']
     }
   ];
 
   const whyChooseReasons = [
     {
-      icon: <FiShield />,
-      title: 'UAE Regulatory Expertise',
-      description:
-        'Our audit teams possess in-depth knowledge of UAE Commercial Companies Law, Federal Tax Authority regulations, free zone requirements across all major zones (JAFZA, DMCC, DIFC, ADGM), and emirate-specific licensing regulations. This specialized UAE knowledge ensures your audit meets exact regulatory specifications without delays or rejections.'
+      icon: <FiUsers />,
+      title: 'Startup & VC Native',
+      description: 'We speak founder, VC, and operator. 200+ UAE startups & portfolios served.'
     },
     {
-      icon: <FiUsers />,
-      title: 'Experienced Professional Team',
-      description:
-        'Our auditors hold internationally recognized certifications including CPA, CA, ACCA, SOCPA, and CMA designations, with many team members holding UAE Ministry of Economy audit approval. With decades of combined experience conducting audits for UAE businesses across mainland and free zones, we bring technical excellence and practical wisdom specific to the UAE business environment.'
+      icon: <FiShield />,
+      title: 'Big 4 + Scaleup DNA',
+      description: 'Fractional CFOs from Deloitte/EY/PwC who have shipped at hypergrowth companies.'
     },
     {
       icon: <FiZap />,
-      title: 'Technology-Enabled Efficiency',
-      description:
-        'We leverage advanced audit software, data analytics tools, and automated testing procedures that enhance audit quality while reducing turnaround times. Our technology platform provides secure client portals for document sharing, real-time progress tracking, and seamless communication throughout the audit process.'
+      title: 'Fast Onboarding',
+      description: '30-day playbook: close cleanup, dashboards live, forecast in circulation.'
     },
     {
       icon: <FiBriefcase />,
-      title: 'Flexible Engagement Models',
-      description:
-        'Whether you need one-time statutory audits, ongoing internal audit support, or specialized forensic investigations, we structure engagements to match your specific needs. Our scalable approach accommodates businesses of all sizes, from startups to large enterprises.'
+      title: 'Flexible Engagements',
+      description: 'Start at 10–40 hours/month, scale up or down without headcount risk.'
     },
     {
       icon: <FiCheckCircle />,
-      title: 'Comprehensive Support Beyond Audit',
-      description:
-        'Our relationships with clients extend beyond issuing audit reports. We provide ongoing advisory support, assist with implementation of recommendations, offer training on internal controls and compliance matters, and serve as a resource for financial and operational questions throughout the year.'
+      title: 'Always-On Access',
+      description: 'WhatsApp/Slack/Email access to your CFO — no gatekeepers.'
     },
     {
       icon: <FiStar />,
-      title: 'Proven Track Record',
-      description:
-        'Our portfolio includes successful audits for hundreds of organizations across multiple jurisdictions. Client testimonials, long-standing relationships,and industry recognition reflect our consistent delivery of high-quality audit services that exceed expectations.'
+      title: 'Outcome-Focused',
+      description: 'Fundraising readiness, faster closes, and reliable reporting — not just accounting.'
     }
   ];
 
@@ -520,6 +538,41 @@ const NewHomePage = () => {
     container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
   };
 
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
+
+  const faqs = [
+    {
+      question: 'What is a Fractional CFO and how is it different from a full-time CFO?',
+      answer:
+        'A Fractional CFO provides the same strategic financial leadership as a full-time CFO but on a part-time basis (typically 10–40 hours/month). You get senior expertise without the AED 500k+ annual cost of a full-time hire.'
+    },
+    {
+      question: 'How do your Virtual CFO Services work?',
+      answer:
+        'You get a dedicated CFO who works remotely with your team via weekly cadences, monthly reporting, and always-on channels (WhatsApp/Slack/email). We integrate with your existing tools for real-time visibility.'
+    },
+    {
+      question: "What's included in your CFO Services packages?",
+      answer:
+        'Strategic FP&A, 3-way forecasting, board/investor reporting, tax/VAT compliance oversight, cash management, controls/policies, fundraising support, and data-room/diligence prep. We tailor scope to your stage.'
+    },
+    {
+      question: 'Do you help with fundraising and investor relations?',
+      answer:
+        'Yes. We build investor-ready models, prepare decks/metrics, run scenarios, set up data rooms, and support diligence Q&A. We join investor calls as needed.'
+    },
+    {
+      question: 'How quickly can you start?',
+      answer:
+        'Most engagements onboard in 1–2 weeks. Week 1: data access + diagnostics. Week 2: first reporting pack + 90-day finance roadmap.'
+    },
+    {
+      question: 'Are you familiar with UAE tax and compliance requirements?',
+      answer:
+        'Absolutely. We cover UAE corporate tax, VAT, ESR, transfer pricing basics, and coordinate with auditors when needed to keep you compliant.'
+    }
+  ];
+
   return (
     <div className="new-homepage">
       {/* Hero Section */}
@@ -528,44 +581,49 @@ const NewHomePage = () => {
           <div className="hero-left">
             <div className="trust-badge">
               <span className="trust-dot" aria-hidden="true" />
-              <span className="trust-text">Trusted audit partners for 5,000+ UAE businesses</span>
+              <span className="trust-text">Trusted by 200+ Founders & VCs in UAE</span>
             </div>
             
             <h1 className="hero-title">
-              Looking for Trusted Auditing Services<br />
-              and Audit Firms in UAE?<br />
-              Say Hello to <span className="highlight-green">Finanshels</span>
+              Expert <span className="highlight-green">Fractional CFO</span><br />
+              Services in Dubai
             </h1>
             
             <p className="hero-description">
-              With a dedicated team of experts trained on the nuances of UAE laws and regulations,
-              Finanshels supports small businesses with audit ready books and FTA representation.
+              Strategic financial leadership for startups, scale-ups, and VC-backed companies. Get enterprise-grade CFO expertise without the full-time cost — from fundraising support to financial operations.
             </p>
             
             <div className="hero-features">
               <div className="hero-feature">
                 <FiCheckCircle className="feature-icon" />
                 <div>
-                  <strong>Top-Rated Audit Services in Dubai, Sharjah, Abu Dhabi</strong>
+                  <strong>Strategic Financial Leadership</strong>
                 </div>
               </div>
               <div className="hero-feature">
                 <FiCheckCircle className="feature-icon" />
                 <div>
-                  <strong>Certified Registered Auditors in the UAE</strong>
+                  <strong>Investor-Ready Reporting</strong>
                 </div>
               </div>
               <div className="hero-feature">
                 <FiCheckCircle className="feature-icon" />
                 <div>
-                  <strong>Leading Auditing Firm Serving 5000+ SMEs</strong>
+                  <strong>Flexible Engagement Models</strong>
                 </div>
               </div>
             </div>
             
             <div className="hero-ctas">
-              <a href="#consultation" className="btn-primary">Book Your Audit Consultation</a>
-              <a href="#services" className="btn-secondary">Explore Audit Services</a>
+              <a
+                href="https://api.whatsapp.com/send/?phone=971521549572&text=Hi%20I%27d%20like%20a%20free%20consultation%20for%20CFO%20services&type=phone_number&app_absent=0"
+                className="btn-primary"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Get Free Consultation
+              </a>
+              <a href="#services" className="btn-secondary">View CFO Services</a>
             </div>
           </div>
           
@@ -603,8 +661,8 @@ const NewHomePage = () => {
                 <input type="hidden" name="utm_term" value="" />
                 <input type="hidden" name="utm_content" value="" />
 
-                <h3 className="form-title">Get Your Free Audit Consultation</h3>
-                <p className="form-subtitle">Book a 30-minute call with our audit experts. No obligation.</p>
+                <h3 className="form-title">Get Your Free CFO Consultation</h3>
+                <p className="form-subtitle">Book a 30-minute strategy call with our CFO experts. No obligation.</p>
 
                 <div className="form-row">
                   <div className="form-field">
@@ -614,7 +672,7 @@ const NewHomePage = () => {
                       maxLength="255"
                       name="Name_First"
                       fieldType="7"
-                      placeholder="First name"
+                      placeholder="John"
                       className="form-input"
                     />
                   </div>
@@ -625,7 +683,7 @@ const NewHomePage = () => {
                       maxLength="255"
                       name="Name_Last"
                       fieldType="7"
-                      placeholder="Last name"
+                      placeholder="Smith"
                       className="form-input"
                     />
                   </div>
@@ -640,7 +698,7 @@ const NewHomePage = () => {
                   name="Email"
                   defaultValue=""
                   fieldType="9"
-                  placeholder="i.e. name@yourdomain.com"
+                  placeholder="john@company.com"
                   className="form-input"
                 />
 
@@ -670,7 +728,7 @@ const NewHomePage = () => {
                   defaultValue=""
                   fieldType="1"
                   maxLength="255"
-                  placeholder="i.e. dropxcell LLC"
+                  placeholder="Your Company LLC"
                   className="form-input"
                 />
 
@@ -681,7 +739,7 @@ const NewHomePage = () => {
                   defaultValue=""
                   fieldType="1"
                   maxLength="255"
-                  placeholder="e.g. Finance Manager"
+                  placeholder="CEO / Founder"
                   className="form-input"
                 />
 
@@ -691,23 +749,9 @@ const NewHomePage = () => {
               </form>
 
               <p className="form-disclaimer">
-                By submitting, you agree to receive communications from Finanshels. Your data is secure and will never be shared.
+                By submitting, you agree to receive communications. Your data is secure and will never be shared.
               </p>
 
-              <div className="form-badges">
-                <div className="badge-item">
-                  <FiCheckCircle className="badge-icon" />
-                  <span>Pay Only if Satisfied</span>
-                </div>
-                <div className="badge-item">
-                  <FiCheckCircle className="badge-icon" />
-                  <span>No Commitment</span>
-                </div>
-                <div className="badge-item">
-                  <FiCheckCircle className="badge-icon" />
-                  <span>24h Response</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -735,20 +779,20 @@ const NewHomePage = () => {
       <section className="stats-section">
         <div className="stats-container">
           <div className="stat-item">
-            <div className="stat-value">5,000+</div>
-            <div className="stat-label">Businesses Served</div>
+            <div className="stat-value">200+</div>
+            <div className="stat-label">Founders & VCs Served</div>
           </div>
           <div className="stat-item">
             <div className="stat-value">4.9</div>
-            <div className="stat-label">Trustpilot Rating</div>
+            <div className="stat-label">Client Rating</div>
           </div>
           <div className="stat-item">
-            <div className="stat-value">10×</div>
-            <div className="stat-label">Faster Than Manual</div>
+            <div className="stat-value">$500M+</div>
+            <div className="stat-label">Fundraising Supported</div>
           </div>
           <div className="stat-item">
             <div className="stat-value">24/7</div>
-            <div className="stat-label">Dedicated Support</div>
+            <div className="stat-label">Dubai-Based Support</div>
           </div>
         </div>
       </section>
@@ -757,18 +801,17 @@ const NewHomePage = () => {
       <section className="problem-section">
         <div className="content-container">
           <div className="section-header">
-            <p className="section-eyebrow">AUDIT READINESS</p>
+            <p className="section-eyebrow">THE CHALLENGE</p>
             <h2 className="section-title">
-              Why is <span className="highlight-green">Audit</span> Necessary?
+              Scaling Without Strategic Finance Is Risky
             </h2>
             <p className="section-subtitle">
-              As your business grows, so do the compliance requirements. Failure to keep up with FTA audits can
-              lead to penalties and tarnish your business reputation.
+              Most founders and portfolio companies struggle with financial operations. Here's what we hear every day.
             </p>
           </div>
           
           <div className="problem-grid">
-            {auditNecessityPoints.map((problem, index) => (
+            {challengePoints.map((problem, index) => (
               <div key={index} className="problem-card">
                 <div className="problem-icon">{problem.icon}</div>
                 <h3 className="problem-title">{problem.title}</h3>
@@ -781,113 +824,36 @@ const NewHomePage = () => {
 
       {/* Solution Section */}
       <section className="solution-section" id="services">
-        <div className="content-container-large">
-          <div className="solution-content">
-            <div className="solution-left">
-              <p className="section-eyebrow">AUDIT SERVICES</p>
-              <h2 className="section-title">
-                Stop Stressing About <span className="highlight-green">Audits.</span>
-              </h2>
-              <p className="solution-description">
-                Your dedicated team of experts at Finanshels do all the heavy lifting preparing your books for audits.
-                Our services cover.
-              </p>
-              
-              <div className="solution-features">
-                {auditServices.map((feature, index) => (
-                  <div key={index} className="solution-feature">
-                    <div className="solution-icon">{feature.icon}</div>
-                    <div className="solution-text">
-                      <h4 className="solution-feature-title">{feature.title}</h4>
-                      <p className="solution-feature-description">{feature.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <a
-                className="btn-primary data-wa-track"
-                href="https://api.whatsapp.com/send/?phone=971521549572&text=Hi+I+saw+your+ad+for+Audit+Services+on+google.+I%E2%80%99d+like+to+get+started.&type=phone_number&app_absent=0"
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => {
-                  if (window.dataLayer) {
-                    window.dataLayer.push({
-                      event: 'whatsapp_click',
-                      button_location: 'solution_section',
-                      button_text: 'Talk to an Audit Expert',
-                      phone_number: '971521549572'
-                    });
-                  }
-                  pushWhatsAppGtmClick('https://api.whatsapp.com/send/?phone=971521549572');
-                }}
+        <div className="content-container services-wrapper">
+          <div className="section-header centered">
+            <p className="section-eyebrow">OUR SERVICES</p>
+            <h2 className="section-title">
+              CFO Services Built for Dubai's Tech Ecosystem
+            </h2>
+            <p className="section-subtitle">
+              From seed-stage startups to established scale-ups, we provide the financial leadership you need to grow confidently.
+            </p>
+          </div>
+
+          <div className="services-grid">
+            {cfoServices.map((service, index) => (
+              <div
+                key={service.title}
+                className={`service-card ${index === 0 || index === 5 ? 'service-card-glow' : ''}`}
               >
-                Talk to an Audit Expert
-              </a>
-            </div>
-            
-            <div className="solution-right">
-              <div className="audit-report-mock">
-                <div className="report-header">
-                  <div className="report-brand">Finanshels Audit</div>
-                  <div className="report-status">Mock Audit Report • FY 2024</div>
-                </div>
-
-                <div className="report-summary">
-                  <div>
-                    <p className="summary-label">Audit Opinion</p>
-                    <p className="summary-value success">Unqualified</p>
-                  </div>
-                  <div>
-                    <p className="summary-label">Prepared For</p>
-                    <p className="summary-value">UAE SME • Free Zone</p>
-                  </div>
-                </div>
-
-                <div className="report-metrics">
-                  <div className="report-metric">
-                    <span className="metric-label">Revenue</span>
-                    <span className="metric-value">AED 12.4M</span>
-                  </div>
-                  <div className="report-metric">
-                    <span className="metric-label">EBITDA</span>
-                    <span className="metric-value">AED 3.1M</span>
-                  </div>
-                  <div className="report-metric">
-                    <span className="metric-label">Cash & Bank</span>
-                    <span className="metric-value">AED 4.8M</span>
-                  </div>
-                </div>
-
-                <div className="report-body">
-                  <div className="report-highlight">
-                    <span className="highlight-dot" />
-                    <div>
-                      <p className="highlight-title">FTA-Ready Financials</p>
-                      <p className="highlight-desc">Prepared to UAE standards with full supporting schedules.</p>
-                    </div>
-                  </div>
-                  <div className="report-highlight">
-                    <span className="highlight-dot" />
-                    <div>
-                      <p className="highlight-title">License Renewal Pack</p>
-                      <p className="highlight-desc">Signed audit report, notes, and management letter.</p>
-                    </div>
-                  </div>
-                  <div className="report-highlight">
-                    <span className="highlight-dot" />
-                    <div>
-                      <p className="highlight-title">Bank-Ready Statements</p>
-                      <p className="highlight-desc">Clean, compliant statements for credit and financing.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="report-footer">
-                  Mock audit report preview — swap with final visual from design.
-                </div>
+                <div className="service-icon">{service.icon}</div>
+                <h3 className="service-title">{service.title}</h3>
+                <p className="service-description">{service.description}</p>
+                <ul className="service-bullets">
+                  {service.bullets.map((item) => (
+                    <li key={item}>
+                      <span className="bullet-dot" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -895,25 +861,51 @@ const NewHomePage = () => {
 
       {/* Why Choose Section */}
       <section className="why-choose-section" id="why-finanshels">
-        <div className="content-container">
-          <div className="section-header">
-            <p className="section-eyebrow">WHY BUSINESS OWNERS CHOOSE FINANSHELS</p>
+        <div className="content-container why-choose-layout">
+          <div className="why-left">
+            <p className="section-eyebrow">WHY CHOOSE US</p>
             <h2 className="section-title">
-              Ready to Strengthen Your Financial Integrity?
+              Financial Leadership That Scales With You
             </h2>
             <p className="section-subtitle">
-              Contact us today to discuss how our professional audit services can provide the assurance, insights, and credibility your organization needs to thrive.
+              We're not just accountants pushing numbers. We're strategic partners who've helped 200+ companies raise capital, optimize operations, and achieve their growth targets.
             </p>
+
+            <div className="quote-card">
+              <p className="quote-text">
+                “Finanshels transformed our finance function. We closed our Series A in 3 months with their support. They're an extension of our team.”
+              </p>
+              <div className="quote-author">
+                <span className="author-badge">AK</span>
+                <div className="author-meta">
+                  <strong>Ahmed Khan</strong>
+                  <span>CEO, TechStartup Dubai</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="why-actions">
+              <a
+                className="btn-whatsapp"
+                href="https://api.whatsapp.com/send/?phone=971521549572&text=Hi%20I%27d%20like%20a%20free%20consultation%20for%20CFO%20services&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Get Free Consultation
+              </a>
+            </div>
           </div>
 
-          <div className="reason-grid">
-            {whyChooseReasons.map((reason, index) => (
-              <div key={index} className="reason-card">
-                <div className="reason-icon">{reason.icon}</div>
-                <h3 className="reason-title">{reason.title}</h3>
-                <p className="reason-description">{reason.description}</p>
-              </div>
-            ))}
+          <div className="why-right">
+            <div className="reason-grid">
+              {whyChooseReasons.map((reason, index) => (
+                <div key={index} className="reason-card">
+                  <div className="reason-icon">{reason.icon}</div>
+                  <h3 className="reason-title">{reason.title}</h3>
+                  <p className="reason-description">{reason.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -1008,181 +1000,59 @@ const NewHomePage = () => {
         </div>
       </section>
 
-
-      {/* Final CTA Section */}
-      <section className="final-cta-section" id="consultation">
-        <div className="final-cta-container">
-          <div className="final-cta-left">
-            <p className="section-eyebrow">GET STARTED TODAY</p>
-            <h2 className="cta-title">
-              Ready to Stop Stressing<br />
-              About Audits?
-            </h2>
-            <p className="cta-description">
-              Join 5,000+ UAE businesses who trust Finanshels with their accounting and audit requirements.
-              Set up a free consultation with our experts today!
-            </p>
-            
-            <div className="cta-steps">
-              <div className="cta-step">
-                <div className="step-number">1</div>
-                <span>Book your free consultation</span>
-              </div>
-              <div className="cta-step">
-                <div className="step-number">2</div>
-                <span>Get a customized audit assessment</span>
-              </div>
-              <div className="cta-step">
-                <div className="step-number">3</div>
-                <span>Get your questions answered by an expert</span>
-              </div>
-            </div>
+      {/* FAQ Section */}
+      <section className="faq-section" id="faq">
+        <div className="content-container">
+          <div className="section-header centered">
+            <p className="section-eyebrow">FAQ</p>
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <p className="section-subtitle">Everything you need to know about our CFO services in Dubai.</p>
           </div>
-          
-          <div className="final-cta-right">
-            <div className="final-consultation-form">
-            <form
-              action="https://forms.zohopublic.com/finanshelsllc/form/GetYourFreeAccountingConsultation/formperma/QCbszPbiYZx16ed2dttj_d614SUen1t8U5iXQVgng7U/htmlRecords/submit"
-                name="form"
-                id="cta-zoho-form"
-                method="POST"
-                acceptCharset="UTF-8"
-                encType="multipart/form-data"
-                onSubmit={() => {
-                  if (window.dataLayer) {
-                    window.dataLayer.push({
-                      event: 'form_submission',
-                      form_name: 'cta_consultation_form',
-                      form_location: 'final_cta_section',
-                      form_type: 'accounting_consultation'
-                    });
-                  }
-                  if (window.gtag) {
-                    window.gtag('event', 'conversion', {
-                      send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL'
-                    });
-                  }
-                }}
-              >
-                <input type="hidden" name="zf_referrer_name" value="" />
-                <input type="hidden" name="zf_redirect_url" value="" />
-                <input type="hidden" name="zc_gad" value="" />
-                <input type="hidden" name="utm_source" value="" />
-                <input type="hidden" name="utm_medium" value="" />
-                <input type="hidden" name="utm_campaign" value="" />
-                <input type="hidden" name="utm_term" value="" />
-                <input type="hidden" name="utm_content" value="" />
 
-                <h3 className="form-title">Get Your Free Audit Consultation</h3>
-                <p className="form-subtitle">Book a 30-minute call with our audit experts. No obligation.</p>
-
-                <div className="form-row">
-                  <div className="form-field">
-                    <label>First Name</label>
-                    <input
-                      type="text"
-                      maxLength="255"
-                      name="Name_First"
-                      fieldType="7"
-                      placeholder="First name"
-                      className="form-input"
-                    />
-                  </div>
-                  <div className="form-field">
-                    <label>Last Name</label>
-                    <input
-                      type="text"
-                      maxLength="255"
-                      name="Name_Last"
-                      fieldType="7"
-                      placeholder="Last name"
-                      className="form-input"
-                    />
-                  </div>
+          <div className="faq-list">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaqIndex === index;
+              return (
+                <div key={faq.question} className={`faq-item ${isOpen ? 'open' : ''}`}>
+                  <button
+                    type="button"
+                    className="faq-question"
+                    onClick={() => setOpenFaqIndex(isOpen ? -1 : index)}
+                  >
+                    <span>{faq.question}</span>
+                    <FiChevronDown className={`faq-icon ${isOpen ? 'rotated' : ''}`} />
+                  </button>
+                  {isOpen && (
+                    <div className="faq-answer">
+                      <p>{faq.answer}</p>
+                    </div>
+                  )}
                 </div>
-
-                <label>
-                  Email <em>*</em>
-                </label>
-                <input
-                  type="text"
-                  maxLength="255"
-                  name="Email"
-                  defaultValue=""
-                  fieldType="9"
-                  placeholder="i.e. name@yourdomain.com"
-                  className="form-input"
-                />
-
-                <label>
-                  Phone <em>*</em>
-                </label>
-                <input
-                  type="text"
-                  compname="PhoneNumber"
-                  name="PhoneNumber_countrycode"
-                  phoneFormat="1"
-                  isCountryCodeEnabled="false"
-                  maxLength="20"
-                  defaultValue=""
-                  fieldType="11"
-                  id="international_PhoneNumber_countrycode_cta"
-                  placeholder="+971 00 000 0000"
-                  className="form-input"
-                />
-
-                <label>
-                  Company Name <em>*</em>
-                </label>
-                <input
-                  type="text"
-                  name="SingleLine1"
-                  defaultValue=""
-                  fieldType="1"
-                  maxLength="255"
-                  placeholder="i.e. dropxcell LLC"
-                  className="form-input"
-                />
-
-                <label>Job Title</label>
-                <input
-                  type="text"
-                  name="SingleLine2"
-                  defaultValue=""
-                  fieldType="1"
-                  maxLength="255"
-                  placeholder="e.g. Finance Manager"
-                  className="form-input"
-                />
-                <button type="submit" className="form-submit">
-                  <em>Submit</em>
-                </button>
-              </form>
-              
-              <p className="form-disclaimer">
-                By submitting, you agree to receive communications from Finanshels. Your data is secure and will never be shared.
-              </p>
-              
-              <div className="form-badges">
-                <div className="badge-item">
-                  <FiCheckCircle className="badge-icon" />
-                  <span>Pay Only if Satisfied</span>
-                </div>
-                <div className="badge-item">
-                  <FiCheckCircle className="badge-icon" />
-                  <span>No Commitment</span>
-                </div>
-                <div className="badge-item">
-                  <FiCheckCircle className="badge-icon" />
-                  <span>24h Response</span>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
+
+      {/* Gradient CTA Panel */}
+      <section className="gradient-cta">
+        <div className="gradient-cta-card">
+          <p className="section-eyebrow">CFO ON-DEMAND</p>
+          <h2 className="gradient-cta-title">
+            Ready to Transform Your <span className="highlight-cta">Financial Operations?</span>
+          </h2>
+          <p className="gradient-cta-subtitle">
+            Join 200+ founders and VCs who trust Finanshels for their CFO needs. Book your free 30-minute strategy call today.
+          </p>
+          <a href="#consultation" className="btn-primary gradient-cta-btn">
+            Get Free Consultation →
+          </a>
+          <p className="gradient-cta-note">No commitment required • Response within 24 hours</p>
+        </div>
+      </section>
+
     </div>
   );
 };
 
-export default NewHomePage;
+export default Home;

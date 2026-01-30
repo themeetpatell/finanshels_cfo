@@ -1,6 +1,6 @@
-# Finanshels Audit Landing Page
+# Finanshels CFO Landing Page
 
-Modern React + Vite landing page for Finanshels audit, tax, and compliance services. Includes CTA forms, testimonials carousel, and SEO/performance tuning for production.
+Modern React + Vite landing page for Finanshels fractional/virtual CFO services. Includes CTA forms, testimonials carousel, and SEO/performance tuning for production.
 
 ## Quickstart
 - Prereq: Node 18+ and npm.
@@ -18,8 +18,8 @@ Modern React + Vite landing page for Finanshels audit, tax, and compliance servi
 - Zoho form embeds for lead capture
 
 ## Project Structure (high level)
-- `src/pages/NewHomePage.jsx` — main landing page sections and content
-- `src/pages/NewHomePage.css` — page styles, responsive rules, testimonial carousel
+- `src/pages/Home.jsx` — main landing page sections and content
+- `src/pages/Home.css` — page styles, responsive rules, testimonial carousel
 - `src/components/Nav.jsx`, `Footer.jsx`, `Layout.jsx`, `FloatingContacts.jsx` — shell layout and chrome
 - `public/` — static assets (hero image, logos, client logos)
 - `index.html` — document head, SEO/analytics, preload links
@@ -41,11 +41,9 @@ Modern React + Vite landing page for Finanshels audit, tax, and compliance servi
 3) Ensure the canonical/OG URLs in `index.html` point to the live domain and that `public/finanshelslogo.svg` and hero image are reachable on that domain.
 
 ## Content Updates
-- Testimonials, hero copy, reasons, and CTAs live in `src/pages/NewHomePage.jsx`.
-- Styles, breakpoints, and carousel tweaks live in `src/pages/NewHomePage.css`.
+- Testimonials, hero copy, reasons, and CTAs live in `src/pages/Home.jsx`.
+- Styles, breakpoints, and carousel tweaks live in `src/pages/Home.css`.
 - Navigation/footers live in `src/components/Nav.jsx` and `src/components/Footer.jsx`.
 
 ## Support
-For changes to tracking IDs, domains, or to add more structured data, edit `index.html`. For component-level adjustments, update the corresponding JSX/CSS files above.***
-# finanshels_audit_web
-# finanshels_cfo
+For changes to tracking IDs, domains, or to add more structured data, edit `index.html`. For component-level adjustments, update the corresponding JSX/CSS files above.

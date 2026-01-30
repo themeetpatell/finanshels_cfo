@@ -17,7 +17,7 @@ const Footer = () => {
                 decoding="async"
               />
             </div>
-            <p className="footer-tagline">Purpose-built bookkeeping and tax support for founders.</p>
+            <p className="footer-tagline">Fractional CFO support, fundraising prep, and investor-grade reporting.</p>
             <div className="footer-contact-modern">
               <a href="mailto:contact@finanshels.com" className="footer-contact-item">
                 <FiMail />
@@ -29,20 +29,23 @@ const Footer = () => {
           <div className="footer-links-modern">
             <div className="footer-column">
               <h4 className="footer-heading">Services</h4>
-              <a href="#pricing" className="footer-link">Pricing</a>
+              <a href="#services" className="footer-link">Services</a>
               <a href="#reviews" className="footer-link">Reviews</a>
               <a
-                href="https://contact-finanshels.zohobookings.com/#/audit-consultation"
+                href="#consultation"
                 className="footer-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => {
+                onClick={(e) => {
                   if (window.dataLayer) {
                     window.dataLayer.push({
                       event: 'footer_consultation_click',
                       button_location: 'footer_links',
                       button_text: 'Book a Call'
                     });
+                  }
+                  const target = document.getElementById('consultation');
+                  if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }
                 }}
               >
