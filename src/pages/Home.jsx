@@ -20,6 +20,7 @@ import './Home.css';
 
 const Home = () => {
   const testimonialsTrackRef = useRef(null);
+  const redirectUrl = typeof window !== 'undefined' ? `${window.location.origin}/thank-you` : '/thank-you';
 
   // Zoho advanced lead UTM capture (provided snippet)
   useEffect(() => {
@@ -630,7 +631,7 @@ const Home = () => {
           <div className="hero-right">
             <div className="final-consultation-form hero-consultation-form">
               <form
-                action="https://forms.zohopublic.com/finanshelsllc/form/GetYourFreeAccountingConsultation/formperma/QCbszPbiYZx16ed2dttj_d614SUen1t8U5iXQVgng7U/htmlRecords/submit"
+                action="https://forms.zohopublic.com/finanshelsllc/form/GetYourFreeCFOConsultation/formperma/dNLao0fZCTYmVubgUPNqs-rqQhFXn0f2pZgFwEUiASQ/htmlRecords/submit"
                 name="form"
                 id="form"
                 method="POST"
@@ -642,7 +643,7 @@ const Home = () => {
                       event: 'form_submission',
                       form_name: 'hero_consultation_form',
                       form_location: 'hero_section',
-                      form_type: 'accounting_consultation'
+                      form_type: 'cfo_consultation'
                     });
                   }
                   if (window.gtag) {
@@ -653,7 +654,7 @@ const Home = () => {
                 }}
               >
                 <input type="hidden" name="zf_referrer_name" value="" />
-                <input type="hidden" name="zf_redirect_url" value="" />
+                <input type="hidden" name="zf_redirect_url" defaultValue={redirectUrl} />
                 <input type="hidden" name="zc_gad" value="" />
                 <input type="hidden" name="utm_source" value="" />
                 <input type="hidden" name="utm_medium" value="" />
@@ -661,36 +662,25 @@ const Home = () => {
                 <input type="hidden" name="utm_term" value="" />
                 <input type="hidden" name="utm_content" value="" />
 
-                <h3 className="form-title">Get Your Free CFO Consultation</h3>
-                <p className="form-subtitle">Book a 30-minute strategy call with our CFO experts. No obligation.</p>
-
+                <h2>Get Your Free CFO Consultation</h2>
+                <p></p>
+                <label>
+                  Name
+                  <em>*</em>
+                </label>
                 <div className="form-row">
                   <div className="form-field">
                     <label>First Name</label>
-                    <input
-                      type="text"
-                      maxLength="255"
-                      name="Name_First"
-                      fieldType="7"
-                      placeholder="John"
-                      className="form-input"
-                    />
+                    <input type="text" maxLength="255" name="Name_First" fieldType="7" placeholder="" />
                   </div>
                   <div className="form-field">
                     <label>Last Name</label>
-                    <input
-                      type="text"
-                      maxLength="255"
-                      name="Name_Last"
-                      fieldType="7"
-                      placeholder="Smith"
-                      className="form-input"
-                    />
+                    <input type="text" maxLength="255" name="Name_Last" fieldType="7" placeholder="" />
                   </div>
                 </div>
-
                 <label>
-                  Email <em>*</em>
+                  Email
+                  <em>*</em>
                 </label>
                 <input
                   type="text"
@@ -698,29 +688,27 @@ const Home = () => {
                   name="Email"
                   defaultValue=""
                   fieldType="9"
-                  placeholder="john@company.com"
-                  className="form-input"
+                  placeholder="i.e. name@yourdomain.com"
                 />
-
                 <label>
-                  Phone <em>*</em>
+                  Phone
+                  <em>*</em>
                 </label>
                 <input
                   type="text"
                   compname="PhoneNumber"
                   name="PhoneNumber_countrycode"
                   phoneFormat="1"
-                  isCountryCodeEnabled="false"
+                  isCountryCodeEnabled={false}
                   maxLength="20"
                   defaultValue=""
                   fieldType="11"
                   id="international_PhoneNumber_countrycode"
                   placeholder="+971 00 000 0000"
-                  className="form-input"
                 />
-
                 <label>
-                  Company Name <em>*</em>
+                  Company Name
+                  <em>*</em>
                 </label>
                 <input
                   type="text"
@@ -728,10 +716,8 @@ const Home = () => {
                   defaultValue=""
                   fieldType="1"
                   maxLength="255"
-                  placeholder="Your Company LLC"
-                  className="form-input"
+                  placeholder="i.e. dropxcell LLC"
                 />
-
                 <label>Job Title</label>
                 <input
                   type="text"
@@ -739,13 +725,9 @@ const Home = () => {
                   defaultValue=""
                   fieldType="1"
                   maxLength="255"
-                  placeholder="CEO / Founder"
-                  className="form-input"
+                  placeholder=""
                 />
-
-                <button type="submit" className="form-submit">
-                  <em>Submit</em>
-                </button>
+                <button type="submit">Submit</button>
               </form>
 
               <p className="form-disclaimer">
@@ -916,7 +898,7 @@ const Home = () => {
           <div className="testimonials-header">
             <span className="testimonials-label">CLIENT SUCCESS STORIES</span>
             <h2 className="testimonials-heading">
-              Trusted by <span className="text-accent">5,000+ Businesses</span>
+              Trusted by <span className="text-accent">6,000+ Businesses</span>
             </h2>
             <p className="testimonials-description">
               Don't just take our word for it. Here's what our clients say about working with Finanshels.
@@ -1044,7 +1026,7 @@ const Home = () => {
           <p className="gradient-cta-subtitle">
             Join 200+ founders and VCs who trust Finanshels for their CFO needs. Book your free 30-minute strategy call today.
           </p>
-          <a href="#consultation" className="btn-primary gradient-cta-btn">
+          <a href="#form" className="btn-primary gradient-cta-btn">
             Get Free Consultation →
           </a>
           <p className="gradient-cta-note">No commitment required • Response within 24 hours</p>

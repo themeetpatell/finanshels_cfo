@@ -37,7 +37,6 @@ const FloatingContacts = () => {
         }}
       >
         <FaWhatsapp className="contact-icon" />
-        <span className="contact-label">WhatsApp</span>
       </a>
       <a
         className="contact-btn phone"
@@ -55,7 +54,6 @@ const FloatingContacts = () => {
         }}
       >
         <FiPhoneCall className="contact-icon" />
-        <span className="contact-label">Call us</span>
       </a>
     </div>
   );

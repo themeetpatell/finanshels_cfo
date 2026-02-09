@@ -380,6 +380,91 @@
   margin-bottom: 22px;
 }
 
+.hero-consultation-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hero-consultation-form h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 6px;
+}
+
+.hero-consultation-form p {
+  margin: 0 0 4px;
+  color: #aeb7c7;
+  font-size: 14px;
+}
+
+.hero-consultation-form label,
+.final-consultation-form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #cdd5e4;
+  margin-top: 6px;
+}
+
+.hero-consultation-form label em,
+.final-consultation-form label em {
+  color: #f8a139;
+  font-style: normal;
+  margin-left: 4px;
+}
+
+.hero-consultation-form input,
+.final-consultation-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #1f2633;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s;
+  background: #131a24;
+  color: #e5e7eb;
+}
+
+.hero-consultation-form input:focus,
+.final-consultation-form input:focus {
+  outline: none;
+  border-color: rgba(248, 161, 57, 0.8);
+  background: #161f2b;
+  box-shadow: 0 0 0 3px rgba(248, 161, 57, 0.18);
+}
+
+.hero-consultation-form input::placeholder,
+.final-consultation-form input::placeholder {
+  color: #7d8794;
+}
+
+.hero-consultation-form button,
+.final-consultation-form button {
+  width: 100%;
+  background: linear-gradient(135deg, #f8a139, #f16610);
+  color: #0c111c;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+  box-shadow: 0 18px 38px rgba(241, 102, 16, 0.35);
+}
+
+.hero-consultation-form button:hover,
+.final-consultation-form button:hover {
+  background: #d7540d;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(241, 102, 16, 0.3);
+}
+
 .hero-consultation-form label,
 .final-consultation-form label {
   display: block;
@@ -803,23 +888,50 @@
 .problem-description {
   font-size: 14px;
   color: #cbd5e1;
-  line-height: 1.6;
+
+  .hero-description,
+  .solution-description,
+  .section-subtitle {
+    font-size: 15px;
+  }
+
+  .hero-trust-row {
+    padding: 0 0 8px;
+    align-items: center;
+  }
+
+  .logo-list-wide {
+    gap: 12px;
+  }
 }
 
-/* Solution Section */
-.solution-section {
-  padding: 120px 24px 100px;
-  background: #090f18;
-  overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-}
+@media (max-width: 600px) {
+  .hero-right {
+    width: 100%;
+  }
 
-.services-wrapper {
-  max-width: 1200px;
-}
+  .final-consultation-form.hero-consultation-form {
+    padding: 22px;
+    border-radius: 16px;
+  }
 
-.solution-section .section-title {
-  font-size: 52px;
+  .hero-consultation-form h2 {
+    font-size: 22px;
+  }
+
+  .hero-consultation-form input {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+
+  .hero-consultation-form button {
+    font-size: 15px;
+    padding: 14px 16px;
+  }
+
+  .gradient-cta-card {
+    padding: 28px 20px;
+  }
 }
 
 .solution-section .section-subtitle {
