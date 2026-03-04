@@ -617,7 +617,7 @@ const Home = () => {
             
             <div className="hero-ctas">
               <a
-                href="https://api.whatsapp.com/send/?phone=971521549572&text=Hi%20I%27d%20like%20a%20free%20consultation%20for%20CFO%20services&type=phone_number&app_absent=0"
+                href="https://contact-finanshels.zohobookings.com/#/accounting-consultation"
                 className="btn-primary"
                 target="_blank"
                 rel="noreferrer"
@@ -869,7 +869,7 @@ const Home = () => {
             <div className="why-actions">
               <a
                 className="btn-whatsapp"
-                href="https://api.whatsapp.com/send/?phone=971521549572&text=Hi%20I%27d%20like%20a%20free%20consultation%20for%20CFO%20services&type=phone_number&app_absent=0"
+                href="https://contact-finanshels.zohobookings.com/#/accounting-consultation"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -1026,7 +1026,12 @@ const Home = () => {
           <p className="gradient-cta-subtitle">
             Join 200+ founders and VCs who trust Finanshels for their CFO needs. Book your free 30-minute strategy call today.
           </p>
-          <a href="#form" className="btn-primary gradient-cta-btn">
+          <a
+            href="https://contact-finanshels.zohobookings.com/#/accounting-consultation"
+            className="btn-primary gradient-cta-btn"
+            target="_blank"
+            rel="noreferrer"
+          >
             Get Free Consultation →
           </a>
           <p className="gradient-cta-note">No commitment required • Response within 24 hours</p>
