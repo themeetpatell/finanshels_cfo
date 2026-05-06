@@ -662,7 +662,7 @@ const Home = () => {
                 <input type="hidden" name="utm_term" value="" />
                 <input type="hidden" name="utm_content" value="" />
 
-                <h2>Get Your Free CFO Consultation</h2>
+                <h2>Set up a Free Consultation</h2>
                 <p></p>
                 <label>
                   Name
@@ -727,7 +727,7 @@ const Home = () => {
                   maxLength="255"
                   placeholder=""
                 />
-                <button type="submit">Submit</button>
+                <button type="submit">Let's Talk</button>
               </form>
 
               <p className="form-disclaimer">
