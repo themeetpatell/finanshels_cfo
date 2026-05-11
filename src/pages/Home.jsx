@@ -352,16 +352,7 @@ const Home = () => {
     { src: '/clients/zywa.png', alt: 'Zywa' }
   ];
 
-  const pushWhatsAppGtmClick = (href) => {
-    if (window.dataLayer) {
-      window.dataLayer.push({
-        event: 'gtm.linkClick',
-        'Click URL': href,
-        'gtm.elementUrl': href,
-        _triggers: '193123837_46' // matches GTM WA trigger regex
-      });
-    }
-  };
+
 
   const challengePoints = [
     {
@@ -664,18 +655,14 @@ const Home = () => {
 
                 <h2>Set up a Free Consultation</h2>
                 <p></p>
-                <label>
-                  Name
-                  <em>*</em>
-                </label>
                 <div className="form-row">
                   <div className="form-field">
                     <label>First Name</label>
-                    <input type="text" maxLength="255" name="Name_First" fieldType="7" placeholder="" />
+                    <input type="text" maxLength="255" name="Name_First" fieldType="7" placeholder="i.e. John" />
                   </div>
                   <div className="form-field">
                     <label>Last Name</label>
-                    <input type="text" maxLength="255" name="Name_Last" fieldType="7" placeholder="" />
+                    <input type="text" maxLength="255" name="Name_Last" fieldType="7" placeholder="i.e. Smith" />
                   </div>
                 </div>
                 <label>
@@ -725,7 +712,7 @@ const Home = () => {
                   defaultValue=""
                   fieldType="1"
                   maxLength="255"
-                  placeholder=""
+                  placeholder="i.e. Founder / CEO"
                 />
                 <button type="submit">Let's Talk</button>
               </form>

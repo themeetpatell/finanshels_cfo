@@ -367,6 +367,13 @@
   background: linear-gradient(155deg, #121826 0%, #0d121b 100%);
 }
 
+.hero-consultation-form {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+  color: #0f172a;
+}
+
 .form-title {
   font-size: 24px;
   font-weight: 700;
@@ -389,17 +396,25 @@
 .hero-consultation-form h2 {
   font-size: 24px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0b1528;
   margin: 0 0 6px;
 }
 
 .hero-consultation-form p {
   margin: 0 0 4px;
-  color: #aeb7c7;
+  color: #475467;
   font-size: 14px;
 }
 
-.hero-consultation-form label,
+.final-consultation-form.hero-consultation-form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #0f172a;
+  margin: 8px 0 4px;
+}
+
 .final-consultation-form label {
   display: block;
   font-size: 12px;
@@ -416,7 +431,18 @@
   margin-left: 4px;
 }
 
-.hero-consultation-form input,
+.final-consultation-form.hero-consultation-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s;
+  background: #ffffff;
+  color: #0f172a;
+}
+
 .final-consultation-form input {
   width: 100%;
   padding: 12px 14px;
@@ -429,7 +455,13 @@
   color: #e5e7eb;
 }
 
-.hero-consultation-form input:focus,
+.final-consultation-form.hero-consultation-form input:focus {
+  outline: none;
+  border-color: rgba(248, 161, 57, 0.8);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(248, 161, 57, 0.18);
+}
+
 .final-consultation-form input:focus {
   outline: none;
   border-color: rgba(248, 161, 57, 0.8);
@@ -437,7 +469,10 @@
   box-shadow: 0 0 0 3px rgba(248, 161, 57, 0.18);
 }
 
-.hero-consultation-form input::placeholder,
+.final-consultation-form.hero-consultation-form input::placeholder {
+  color: #94a3b8;
+}
+
 .final-consultation-form input::placeholder {
   color: #7d8794;
 }
@@ -465,7 +500,14 @@
   box-shadow: 0 10px 25px rgba(241, 102, 16, 0.3);
 }
 
-.hero-consultation-form label,
+.final-consultation-form.hero-consultation-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 12px 0 6px;
+}
+
 .final-consultation-form label {
   display: block;
   font-size: 13px;
@@ -478,7 +520,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  margin: 8px 0 4px;
+  margin: 4px 0 2px;
 }
 
 .phone-row {
@@ -1630,7 +1672,7 @@
   font-size: 17px;
   font-weight: 700;
   color: #f8fafc;
-  font-style: normal;
+  margin: 8px 0 4px;
   margin: 0 0 4px;
   line-height: 1.4;
 }
@@ -2947,10 +2989,40 @@
 
 /* Hero form stays light */
 .final-consultation-form.hero-consultation-form {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
-  color: #0f172a;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12) !important;
+  color: #0f172a !important;
+}
+
+.final-consultation-form.hero-consultation-form h2 {
+  color: #0b1528 !important;
+}
+
+.final-consultation-form.hero-consultation-form p,
+.final-consultation-form.hero-consultation-form .form-disclaimer {
+  color: #475467 !important;
+}
+
+.final-consultation-form.hero-consultation-form label {
+  color: #0f172a !important;
+}
+
+.final-consultation-form.hero-consultation-form input:not([type='hidden']) {
+  background: #ffffff !important;
+  border: 1px solid #d0d5dd !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a;
+}
+
+.final-consultation-form.hero-consultation-form input:not([type='hidden'])::placeholder {
+  color: #94a3b8 !important;
+}
+
+.final-consultation-form.hero-consultation-form input:not([type='hidden']):focus {
+  background: #ffffff !important;
+  border-color: #f16610 !important;
+  box-shadow: 0 0 0 3px rgba(241, 102, 16, 0.18) !important;
 }
 
 .final-consultation-form.hero-consultation-form .form-title {
@@ -2959,11 +3031,11 @@
 
 .final-consultation-form.hero-consultation-form .form-subtitle,
 .final-consultation-form.hero-consultation-form .form-disclaimer {
-  color: #475467;
+  color: #475467 !important;
 }
 
 .final-consultation-form.hero-consultation-form label {
-  color: #0f172a;
+  color: #0f172a !important;
 }
 
 .final-consultation-form.hero-consultation-form .form-input {
