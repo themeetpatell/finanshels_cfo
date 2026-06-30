@@ -74,38 +74,31 @@
       // make sure dataLayer exists
       window.dataLayer = window.dataLayer || [];
 
-      (function attachEnhancedConversion() {
-        var formIds = ['form', 'cta-zoho-form'];
-        var attached = {};
-        var maxAttempts = 12;
-        var attempt = 0;
+      // Capture the consultation lead at submit time, but DEFER the Google Ads
+      // conversion (consultation_form_ec) to the /thank-you page. Firing the
+      // conversion on submit is unreliable: client-side validation can fail, and
+      // the redirect to Zoho can cut the tag off before it actually sends.
+      // We hand the email + a one-shot flag to the thank-you page via same-origin
+      // sessionStorage, which survives the Zoho redirect
+      // (finanshels.com -> Zoho -> /thank-you) in the same tab.
+      (function deferConsultationConversion() {
+        var CONSULTATION_FORM_IDS = ['form', 'cta-zoho-form'];
 
-        function bindToForm(form) {
-          if (!form || attached[form.id]) return;
-          attached[form.id] = true;
-          form.addEventListener('submit', function () {
-            var emailField = form.querySelector('input[name="Email"]');
-            var emailValue = emailField ? (emailField.value || '').trim() : '';
-            if (!emailValue) return;
-            window.dataLayer.push({
-              event: 'consultation_form_ec',
-              enhanced_conversion_data: {
-                email: emailValue
-              },
-              form_id: form.id
-            });
-          });
-        }
+        document.addEventListener('submit', function (event) {
+          var formEl = event.target;
+          if (!formEl || CONSULTATION_FORM_IDS.indexOf(formEl.id) === -1) return;
 
-        var interval = setInterval(function () {
-          formIds.forEach(function (id) {
-            bindToForm(document.getElementById(id));
-          });
-          attempt += 1;
-          if (attempt >= maxAttempts || formIds.every(function (id) { return attached[id]; })) {
-            clearInterval(interval);
-          }
-        }, 500);
+          var emailField = formEl.querySelector('input[name="Email"]');
+          var emailValue = emailField ? (emailField.value || '').trim() : '';
+
+          // Accurate on the landing page: the consultation form WAS submitted.
+          window.dataLayer.push({ event: 'zf_submitform', form_id: formEl.id });
+
+          try {
+            window.sessionStorage.setItem('consultation_submitted', '1');
+            window.sessionStorage.setItem('consultation_email', emailValue);
+          } catch (e) {}
+        }, true); // capture phase: fires before navigation, no per-form binding needed
       })();
     </script>
     <div id="root"></div>

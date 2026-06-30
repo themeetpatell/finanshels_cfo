@@ -315,31 +315,6 @@ const Home = () => {
     window.zfutm_zfAdvLead = zfutm_zfAdvLead;
   }, []);
 
-  // Push consultation_form_ec for thank-you conversion
-  useEffect(() => {
-    const formIds = ['form', 'cta-zoho-form'];
-    const handler = (event) => {
-      const formEl = event.target;
-      const emailValue = formEl.querySelector('input[name="Email"]')?.value?.trim() || '';
-      if (window.dataLayer) {
-        window.dataLayer.push({
-          event: 'consultation_form_ec',
-          enhanced_conversion_data: { email: emailValue }
-        });
-      }
-    };
-
-    const attached = formIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
-
-    attached.forEach((form) => form.addEventListener('submit', handler));
-
-    return () => {
-      attached.forEach((form) => form.removeEventListener('submit', handler));
-    };
-  }, []);
-
   const clientLogos = [
     { src: '/clients/Binary.png', alt: 'Binary' },
     { src: '/clients/actualize.png', alt: 'Actualize' },
@@ -629,17 +604,15 @@ const Home = () => {
                 acceptCharset="UTF-8"
                 encType="multipart/form-data"
                 onSubmit={() => {
+                  // Analytics-only signal that the form was submitted. The Google Ads
+                  // conversion (consultation_form_ec) is deferred to /thank-you so it
+                  // only counts confirmed submissions — see src/pages/ThankYou.jsx.
                   if (window.dataLayer) {
                     window.dataLayer.push({
                       event: 'form_submission',
                       form_name: 'hero_consultation_form',
                       form_location: 'hero_section',
                       form_type: 'cfo_consultation'
-                    });
-                  }
-                  if (window.gtag) {
-                    window.gtag('event', 'conversion', {
-                      send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL'
                     });
                   }
                 }}
