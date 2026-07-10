@@ -1,9 +1,17 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { FiCheckCircle } from 'react-icons/fi';
 import './ThankYou.css';
 
+// Simple sanity check for the email Zoho appends to the redirect URL. The value
+// is user-supplied via the query string, so we only render it after it matches.
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const ThankYou = () => {
+  const [searchParams] = useSearchParams();
+  const rawEmail = searchParams.get('customer_email') || '';
+  const customerEmail = EMAIL_PATTERN.test(rawEmail) ? rawEmail : '';
+
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'thank_you_page_view' });
@@ -42,10 +50,17 @@ const ThankYou = () => {
           <FiCheckCircle />
         </div>
         <h1>Thanks for reaching out!</h1>
-        <p>
-          Your consultation request is in. Our team will contact you shortly to schedule
-          your 30-minute CFO strategy call.
-        </p>
+        {customerEmail ? (
+          <p>
+            Your call is booked. A confirmation and calendar invite are on their way to{' '}
+            <strong>{customerEmail}</strong>. We look forward to speaking with you.
+          </p>
+        ) : (
+          <p>
+            Your consultation request is in. Our team will contact you shortly to schedule
+            your 30-minute CFO strategy call.
+          </p>
+        )}
         <div className="thank-you-actions">
           <Link to="/" className="thank-you-btn">Back to Home</Link>
         </div>
