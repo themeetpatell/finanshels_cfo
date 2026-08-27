@@ -1,9 +1,19 @@
+import { useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
 import { FiPhoneCall } from 'react-icons/fi';
 import { brand } from '../content/countries';
+import { WA_PHONE, buildWhatsAppHref, resolveWhatsAppChannel } from '../content/waMessages';
 
 const FloatingContacts = () => {
   const phoneHref = brand.phone.replace(/\s+/g, '');
+  const { pathname, search } = useLocation();
+
+  const whatsAppChannel = useMemo(
+    () => resolveWhatsAppChannel({ pathname, search }),
+    [pathname, search]
+  );
+  const whatsAppHref = useMemo(() => buildWhatsAppHref(whatsAppChannel), [whatsAppChannel]);
 
   const pushWhatsAppGtmClick = (href) => {
     if (window.dataLayer) {
@@ -20,7 +30,7 @@ const FloatingContacts = () => {
     <div className="floating-contacts" aria-label="Contact options">
       <a
         className="contact-btn whatsapp data-wa-track"
-        href="https://api.whatsapp.com/send/?phone=971521549572&text=Hi+I+saw+your+ad+for+Audit+Services+on+google.+I%E2%80%99d+like+to+get+started.&type=phone_number&app_absent=0"
+        href={whatsAppHref}
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
@@ -30,10 +40,11 @@ const FloatingContacts = () => {
               event: 'whatsapp_click',
               button_location: 'floating_button',
               button_text: 'WhatsApp',
-              phone_number: '971521549572'
+              whatsapp_channel: whatsAppChannel,
+              phone_number: WA_PHONE
             });
           }
-          pushWhatsAppGtmClick('https://api.whatsapp.com/send/?phone=971521549572');
+          pushWhatsAppGtmClick(`https://api.whatsapp.com/send/?phone=${WA_PHONE}`);
         }}
       >
         <FaWhatsapp className="contact-icon" />
