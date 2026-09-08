@@ -1,4 +1,4 @@
-import { FiMail } from 'react-icons/fi';
+import { FiMail, FiShield } from 'react-icons/fi';
 import finanshelsLogo from '../assets/finanshelslogo.svg';
 
 const Footer = () => {
@@ -18,6 +18,14 @@ const Footer = () => {
               />
             </div>
             <p className="footer-tagline">Fractional CFO support, fundraising prep, and investor-grade reporting.</p>
+            <p className="footer-credential">
+              <FiShield className="footer-credential-icon" aria-hidden="true" />
+              <span>
+                FTA-Approved Tax Agency Firm
+                <br />
+                FTA Registered Tax Agency Registration No. 30022628
+              </span>
+            </p>
             <div className="footer-contact-modern">
               <a href="mailto:contact@finanshels.com" className="footer-contact-item">
                 <FiMail />

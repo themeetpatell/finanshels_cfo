@@ -536,7 +536,7 @@ const Home = () => {
     {
       question: 'Are you familiar with UAE tax and compliance requirements?',
       answer:
-        'Absolutely. We cover UAE corporate tax, VAT, ESR, transfer pricing basics, and coordinate with auditors when needed to keep you compliant.'
+        'Absolutely. Finanshels is an FTA-approved tax agency firm (FTA Registered Tax Agency Registration No. 30022628). We cover UAE corporate tax, VAT, ESR, transfer pricing basics, and coordinate with auditors when needed to keep you compliant.'
     }
   ];
 
@@ -546,9 +546,15 @@ const Home = () => {
       <section className="hero-section">
         <div className="hero-container">
           <div className="hero-left">
-            <div className="trust-badge">
-              <span className="trust-dot" aria-hidden="true" />
-              <span className="trust-text">Trusted by 200+ Founders & VCs in UAE</span>
+            <div className="hero-badges">
+              <div className="trust-badge">
+                <span className="trust-dot" aria-hidden="true" />
+                <span className="trust-text">Trusted by 200+ Founders &amp; VCs in UAE</span>
+              </div>
+              <div className="trust-badge trust-badge-fta">
+                <FiShield className="trust-badge-icon" aria-hidden="true" />
+                <span className="trust-text">FTA-Approved Tax Agency</span>
+              </div>
             </div>
             
             <h1 className="hero-title">
@@ -737,6 +743,14 @@ const Home = () => {
             <div className="stat-label">Dubai-Based Support</div>
           </div>
         </div>
+
+        <p className="stats-credential">
+          <FiShield className="stats-credential-icon" aria-hidden="true" />
+          <span>
+            <strong>FTA-Approved Tax Agency Firm</strong> — FTA Registered Tax Agency
+            Registration No. 30022628
+          </span>
+        </p>
       </section>
 
       {/* Problem Section */}

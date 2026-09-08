@@ -1,6 +1,6 @@
 .thank-you-page {
   min-height: 80vh;
-  padding: 120px 24px 80px;
+  padding: calc(var(--header-h) + 51px) 24px 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,7 +70,7 @@
 
 @media (max-width: 768px) {
   .thank-you-page {
-    padding: 110px 20px 70px;
+    padding: calc(var(--header-h) + 46px) 20px 70px;
   }
 
   .thank-you-card {

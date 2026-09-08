@@ -3881,3 +3881,111 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   Compliance banner — full-width credential strip under the nav row.
+
+   It renders INSIDE the fixed <header>, so the header is now two rows tall.
+   Nav.jsx measures the header and publishes --header-h; the values below are
+   only the pre-JS fallback so the first paint is already correct.
+   ========================================================================== */
+
+:root {
+  --header-h: 101px;
+}
+
+.compliance-banner {
+  background: #fff7ed;
+  border-top: 1px solid #fed7aa;
+}
+
+.compliance-banner-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 7px 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: #b84d08;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.compliance-banner-icon {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+}
+
+.compliance-banner-primary {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.compliance-banner-sep {
+  flex-shrink: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #f9a870;
+}
+
+.compliance-banner-reg {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-h: 93px;
+  }
+
+  .compliance-banner-inner {
+    padding: 6px 0.75rem;
+    gap: 8px;
+    font-size: 0.75rem;
+  }
+
+  .compliance-banner-icon {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+/* Below 600px the full registration sentence no longer fits on one line, so
+   the strip keeps the number and drops the descriptive prefix. */
+@media (max-width: 600px) {
+  .compliance-banner-reg-long {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .compliance-banner-inner {
+    gap: 6px;
+    font-size: 0.6875rem;
+  }
+}
+
+/* FTA credential block in the footer brand column. */
+.footer-credential {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 1.25rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--text-light);
+  font-variant-numeric: tabular-nums;
+}
+
+.footer-credential-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #f8a139;
+}

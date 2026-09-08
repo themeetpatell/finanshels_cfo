@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import finanshelsLogo from '../assets/finanshelslogo.svg';
+import ComplianceBanner from './ComplianceBanner';
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,8 +14,34 @@ const Nav = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // The header is fixed, so page sections cannot rely on normal flow for their
+  // top offset. Publish the real rendered height (nav row + compliance banner)
+  // as --header-h and let the sections offset from it. Measured rather than
+  // hardcoded because the banner's height changes with breakpoint and font
+  // loading, and a stale magic number here overlaps the hero on small screens.
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return undefined;
+
+    const publishHeaderHeight = () => {
+      document.documentElement.style.setProperty('--header-h', `${el.offsetHeight}px`);
+    };
+
+    publishHeaderHeight();
+
+    if (typeof ResizeObserver === 'undefined') {
+      // Older browsers keep the CSS fallback value and re-measure on resize.
+      window.addEventListener('resize', publishHeaderHeight);
+      return () => window.removeEventListener('resize', publishHeaderHeight);
+    }
+
+    const observer = new ResizeObserver(publishHeaderHeight);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <header className={`nav-modern ${isScrolled ? 'nav-scrolled' : ''}`}>
+    <header ref={headerRef} className={`nav-modern ${isScrolled ? 'nav-scrolled' : ''}`}>
       <div className="nav-container-modern">
         <a href="/" className="nav-logo-modern">
           <img
@@ -48,6 +76,8 @@ const Nav = () => {
           Get Free Consultation
         </a>
       </div>
+
+      <ComplianceBanner />
     </header>
   );
 };
